@@ -37,7 +37,6 @@ h1,h2,h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase
 header{background:var(--black);color:var(--white);position:sticky;top:0;z-index:20;border-bottom:3px solid var(--red);}
 header .wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;}
 .brand{display:flex;align-items:center;gap:12px;}
-.brand img{height:40px;width:auto;}
 .brand span{font-family:'Anton',sans-serif;font-size:16px;letter-spacing:0.5px;}
 nav a{font-size:14px;font-weight:600;margin-left:22px;text-decoration:none;color:var(--off);}
 nav a:hover{color:var(--red);}
@@ -46,18 +45,24 @@ nav{display:none;}
 
 /* hero */
 .hero{background:var(--black);color:var(--white);padding:56px 0 72px;position:relative;overflow:hidden;}
-.hero .wrap{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;text-align:center;}
-.hero-logo{height:110px;width:auto;flex-shrink:0;}
+.hero .wrap{display:grid;grid-template-columns:minmax(240px,0.72fr) minmax(0,1.28fr);align-items:center;gap:48px;text-align:left;}
+.hero-logo{width:min(100%,380px);justify-self:end;background:var(--white);border-radius:18px;padding:14px;box-shadow:0 22px 60px rgba(0,0,0,.35);}
 .hero-text h1{font-size:clamp(34px,6vw,64px);}
 .hero-text .season{color:var(--red);font-size:clamp(20px,3vw,28px);font-family:'Anton',sans-serif;margin:6px 0 2px;}
 .hero-text p.script{font-size:clamp(30px,5vw,46px);color:var(--white);margin-top:4px;}
-.hero-sub{max-width:640px;margin:20px auto 0;color:#cfcfcf;font-size:16px;}
-.hero-cta{margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.hero-sub{max-width:640px;margin:20px 0 0;color:#cfcfcf;font-size:16px;}
+.hero-cta{margin-top:28px;display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap;}
 .btn{display:inline-block;padding:14px 28px;font-weight:700;font-size:15px;text-decoration:none;border-radius:4px;border:2px solid transparent;}
 .btn-primary{background:var(--red);color:var(--white);}
 .btn-primary:hover{background:var(--red-dark);}
 .btn-outline{border-color:var(--white);color:var(--white);}
 .btn-outline:hover{border-color:var(--red);color:var(--red);}
+@media(max-width:760px){
+  .hero .wrap{grid-template-columns:1fr;text-align:center;gap:28px;}
+  .hero-logo{width:min(76vw,320px);justify-self:center;}
+  .hero-sub{margin-left:auto;margin-right:auto;}
+  .hero-cta{justify-content:center;}
+}
 
 /* section basics */
 section{padding:64px 0;}
@@ -113,6 +118,9 @@ section{padding:64px 0;}
 .card h3{font-size:16px;margin-bottom:12px;}
 .card p{font-size:14px;margin-bottom:6px;}
 .card a.link{color:var(--red);font-weight:600;text-decoration:none;}
+.social-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+.social-link{display:inline-flex;align-items:center;padding:9px 14px;border:1px solid var(--line);border-radius:4px;color:var(--black);font-size:14px;font-weight:700;text-decoration:none;transition:background-color .2s ease,border-color .2s ease,color .2s ease;}
+.social-link:hover,.social-link:focus-visible{background:var(--red);border-color:var(--red);color:var(--white);outline:none;}
 
 /* footer */
 footer{background:var(--black);color:#aaa;padding:36px 0;font-size:13px;}
@@ -125,7 +133,6 @@ footer strong{color:var(--white);}
 <header>
   <div class="wrap">
     <div class="brand">
-      <img src="assets/bear-logo.png" alt="Bradshaw Mountain Bears logo">
       <span>Bradshaw Mountain Band &amp; Guard</span>
     </div>
     <nav>
@@ -138,7 +145,7 @@ footer strong{color:var(--white);}
 
 <section class="hero">
   <div class="wrap">
-    <img src="assets/bear-logo.png" alt="" class="hero-logo">
+    <img src="assets/band-logo.png" alt="Bradshaw Mountain Band and Guard logo" class="hero-logo">
     <div class="hero-text">
       <div class="season">2026 &ndash; 2027 season</div>
       <h1>Sponsor the band</h1>
@@ -149,7 +156,6 @@ footer strong{color:var(--white);}
         <a class="btn btn-outline" href="#tiers">See sponsorship levels</a>
       </div>
     </div>
-    <img src="assets/bear-logo.png" alt="" class="hero-logo">
   </div>
 </section>
 
@@ -292,7 +298,10 @@ footer strong{color:var(--white);}
       <div class="card">
         <h3>Reach us directly</h3>
         <p>Logo files and questions: <a class="link" href="mailto:bradshawmarching@gmail.com">bradshawmarching@gmail.com</a></p>
-        <p>Pay by card over the phone: Jenn Miller, <a class="link" href="tel:8013884145">801-388-4145</a></p>
+        <div class="social-links" aria-label="Follow Bradshaw Mountain Band and Guard">
+          <a class="social-link" href="https://www.facebook.com/profile.php?id=100082965312873" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a class="social-link" href="https://www.instagram.com/bradshawmarchingbears/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
       </div>
     </div>
   </div>
