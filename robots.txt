@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://bmhsband.netlify.app/sitemap.xml
